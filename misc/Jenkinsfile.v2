@@ -18,6 +18,7 @@ pipeline {
         stage('Build and Push Image to Dockerhub') {
             steps {
                 script {
+                    sh "echo 'ivanfabs/learning-jenkins:$COMMIT_ID'"
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
                         def app = docker.build('ivanfabs/learning-jenkins:$COMMIT_ID', '.').push()
                     }
