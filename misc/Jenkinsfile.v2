@@ -27,11 +27,10 @@ pipeline {
     }
     post {
         success {
-            node('master') {
-                stage('Pull Image From Dockerhub') {
-                    steps {
-                        sh 'docker pull ivanfabs/learning-jenkins:$COMMIT_ID'
-                    }
+            script {
+                node('master') {
+                    // Pull Image From Dockerhub
+                    sh "docker pull ivanfabs/learning-jenkins:$COMMIT_ID"
                 }
             }
         }
