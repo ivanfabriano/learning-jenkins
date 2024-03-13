@@ -38,7 +38,7 @@ pipeline {
         success {
             script {
                     node('master') {
-                    docker login -u ivanfabs -p ivanivan123
+                    sh "docker login -u ivanfabs -p ivanivan123"
                     // Pull Image From Dockerhub
                     sh "docker pull ivanfabs/learning-jenkins-private:${COMMIT_ID}"
                     try {
