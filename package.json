@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-prod": "tsc && node dist/server.js"
+    "start-prod": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
