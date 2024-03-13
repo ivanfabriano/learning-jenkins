@@ -26,6 +26,13 @@ pipeline {
                 }
             }
         }
+        stage('Delete All Images After Push') {
+            steps {
+                script {
+                    sh "docker image prune -af"
+                }
+            }
+        }
     }
     post {
         success {
