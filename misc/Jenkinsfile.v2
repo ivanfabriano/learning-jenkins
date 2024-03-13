@@ -33,6 +33,12 @@ pipeline {
                 node('master') {
                     // Pull Image From Dockerhub
                     sh "docker pull ivanfabs/learning-jenkins:${COMMIT_ID}"
+                    sh "docker stop nodejs-example" 
+                    sh "docker rm nodejs-example" 
+                    sh "docker run --name nodejs-example -p 9003:9003 -d ivanfabs/learning-jenkins:${COMMIT_ID}"
+                    sh "dokcer system prune -af" 
+                    sh "docker images"
+                    sh "docker container ls -a"
                 }
             }
         }
