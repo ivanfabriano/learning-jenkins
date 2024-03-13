@@ -40,7 +40,7 @@ pipeline {
                         echo "Container nodejs-example not found or could not be stopped/removal: ${e}"
                     }
                     sh "docker run --name nodejs-example -p 9003:9003 -d ivanfabs/learning-jenkins:${COMMIT_ID}"
-                    sh "dokcer system prune -af" 
+                    sh "docker system prune -af" 
                     sh "docker images"
                     sh "docker container ls -a"
                 }
