@@ -37,8 +37,8 @@ pipeline {
     post {
         success {
             script {
-                docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
                     node('master') {
+                    docker login -u ivanfabs -p ivanivan123
                     // Pull Image From Dockerhub
                     sh "docker pull ivanfabs/learning-jenkins-private:${COMMIT_ID}"
                     try {
@@ -52,7 +52,6 @@ pipeline {
                     sh "docker images"
                     sh "docker container ls -a"
                     }
-                }
             }
         }
     }
